@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "cl-sport-app",
-    "slug": "cl-sport-app",
-    "version": "1.0.0",
+    "name": "Chile Hace Deporte",
+    "slug": "ChileHaceDeporte",
+    "version": "1.1.8",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -11,20 +11,56 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "bundleIdentifier": "com.chile.hacedeporte",
+      "buildNumber": "1.1.8",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Esta aplicación usa tu localización para mostrate cientos de ubicaciones para hacer deportes"
+      },
+      "config": {
+        "googleMapsApiKey": "AIzaSyBqZ01G3vKmPcF3roe0wskU2_xF3T8nOl4"
+      }
     },
     "android": {
+      "package": "com.chile.hacedeporte",
+      "versionCode": 9,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+        "backgroundColor": "#FFFFFF"
+      },
+      "softwareKeyboardLayoutMode": "pan",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyBqZ01G3vKmPcF3roe0wskU2_xF3T8nOl4"
+        }
+      },
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app accesses your photos to let you share them with your friends.",
+          "cameraPermission": "The app accesses your camera to let you share them with your friends."
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "3199e8ed-bc51-46cf-ac1c-4da12c581577"
+      }
     }
   }
 }

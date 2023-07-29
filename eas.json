@@ -1,0 +1,29 @@
+{
+  "cli": {
+    "version": ">= 3.2.1"
+  },
+  "build": {
+    "development": {
+      "distribution": "internal",
+      "android": {
+        "gradleCommand": ":app:assembleDebug"
+      },
+      "ios": {
+        "buildConfiguration": "Debug"
+      }
+    },
+    "preview": {
+      "distribution": "internal"
+    },
+    "production": {}
+  },
+  "submit": {
+    "production": {
+      "ios": {
+        "appleId": "chilehacedeporte@gmail.com",
+        "ascAppId": "1618032373",
+        "appleTeamId": "S76365T9JQ"
+      }
+    }
+  }
+}

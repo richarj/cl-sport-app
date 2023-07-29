@@ -1,20 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react'
+import AuthRouter from './src/Router/AuthRouter'
+import ActionsContext from './src/Contexts/ActionsContext'
+import ApolloProvider from './src/Providers/ApolloProvider'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { RootSiblingParent } from 'react-native-root-siblings'
 
-export default function App() {
+
+const App = () => {
+  const [action, setAction] = useState({})
+  const changeAction = async (action) => {
+    // await AsyncStorage.setItem("profile", JSON.stringify(action))
+    setAction(action)
+  }
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ActionsContext.Provider
+      value={{ action, changeAction }}>
+      <ApolloProvider>
+        <SafeAreaProvider>
+          <RootSiblingParent>
+            <AuthRouter />
+          </RootSiblingParent>
+        </SafeAreaProvider>
+      </ApolloProvider>
+    </ActionsContext.Provider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App
+
